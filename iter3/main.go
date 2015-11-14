@@ -12,14 +12,14 @@ func main() {
 
 	for j := 1; j < size; j++{
 		println("test");
-		go vericalWorker(twoD, j)
+		go vericalWorker(twoD[0], j)
 	}
 
 	fmt.Println(twoD)
 	// TODO: read file
 }
 
-func vericalWorker(twoD [3][3]byte, i int){ 
+func vericalWorker(twoD *byte, i int){ 
 	for j := 0; j < size; j++{
 		println("vericalWorkerFor");
 		fmt.Println(twoD[i][j])
@@ -31,6 +31,8 @@ func vericalWorker(twoD [3][3]byte, i int){
 		}
 	}
 }
+
+// TODO: diagonal 2x
 
 func corizontalWorker(twoD [3][3]byte, j int){ 
 	println("corizontalWorker")

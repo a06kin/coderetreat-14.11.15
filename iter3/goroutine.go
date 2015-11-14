@@ -3,6 +3,7 @@
 package main
 
 import "fmt"
+import "time"
 
 func f(from string) {
     for i := 0; i < 3; i++ {
@@ -15,12 +16,12 @@ func main() {
     // Suppose we have a function call `f(s)`. Here's how
     // we'd call that in the usual way, running it
     // synchronously.
-    f("direct")
+    // f("direct")
 
     // To invoke this function in a goroutine, use
     // `go f(s)`. This new goroutine will execute
     // concurrently with the calling one.
-    go f("goroutine")
+    // go f("goroutine")
 
     // You can also start a goroutine for an anonymous
     // function call.
@@ -28,11 +29,13 @@ func main() {
         fmt.Println(msg)
     }("going")
 
+    time.Sleep(100 * time.Millisecond)
+
     // Our two function calls are running asynchronously in
     // separate goroutines now, so execution falls through
     // to here. This `Scanln` code requires we press a key
     // before the program exits.
-    var input string
-    fmt.Scanln(&input)
-    fmt.Println("done")
+    // var input string
+    // fmt.Scanln(&input)
+    // fmt.Println("done")
 }
